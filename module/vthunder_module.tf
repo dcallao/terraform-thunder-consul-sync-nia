@@ -1,39 +1,35 @@
-resource "vthunder_service_group" "sg1" {
-  for_each = var.services
-  name     = each.value.name
+resource "vthunder_service_group" "service-group" {
+  for_each = local.grouped
+  name     = each.key
   protocol = "TCP"
 
   dynamic "member_list" {
-    for_each = var.services
+    for_each = each.value
+    
     content {
-      name = member_list.value.id
+      name = member_list.value.address
       port = member_list.value.port
       host = member_list.value.address
     }
+  
   }
 }
-
-#output "services_output" {
-#  value = local.grouped
-#}
-
-#output "services_ids" {
-#  value = local.service_ids
-#}
 
 locals {
   service_ids = transpose({
       for id, s in var.services : id => [s.name]
   })
-#  grouped = {
-#      for name, ids in local.service_ids:
-#      name => {
-#      }
-#  }
 }
+
+output "services_idss" {
+  value = local.service_ids
+}
+
+
 output "services_output" {
   value = local.grouped
 }
+
 locals {
   grouped = {
     for name, ids in local.service_ids:
