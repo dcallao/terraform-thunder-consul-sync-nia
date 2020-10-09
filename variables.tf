@@ -37,8 +37,9 @@ variable "vthunder" {
     username = string
   })
 }
-#Picked from custom variables
-variable "slb_sg_proto" {
+
+variable "slb_service_group_protocol" {
+  description = "Protocol of the Consul services in service group"
   type    = string
   default = "udp"
 }
