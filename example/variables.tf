@@ -20,22 +20,12 @@ variable "services" {
   )
 }
 
-variable "vthunder" {
-  default     = null
-  description = "Configuration object for vthunder"
-  type = object({
-    address  = string
-    password = string
-    username = string
-  })
-}
-
 variable "slb_service_group_protocol" {
   description = "Protocol of the Consul services in service group"
   type    = string
   default = "udp"
 }
 
-variable vthunder_host {}
-variable vthunder_user {}
-variable vthunder_passwd {}
+variable thunder_host {}
+variable thunder_user {}
+variable thunder_passwd {}

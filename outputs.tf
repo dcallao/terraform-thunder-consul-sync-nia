@@ -1,4 +1,4 @@
-output "services_idss" {
+output "services_ids" {
   value = local.service_ids
 }
 

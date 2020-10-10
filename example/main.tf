@@ -1,6 +1,6 @@
 terraform {
   required_providers {
-    vthunder = {
+    thunder = {
       source = "a10networks/thunder"
       version = "0.4.7"
     }
@@ -9,14 +9,13 @@ terraform {
 }
 
 
-
-provider "vthunder" {
-  address  = var.vthunder_host
-  username = var.vthunder_user
-  password = var.vthunder_passd
+provider "thunder" {
+  address  = var.thunder_host
+  username = var.thunder_user
+  password = var.thunder_passd
 }
 
-module "vthunder_module" {
+module "thunder_module" {
   source   = "../"
   services = var.services
   protocol = var.slb_service_group_protocol

@@ -1,6 +1,6 @@
 terraform {
   required_providers {
-    vthunder = {
+    thunder = {
       source = "a10networks/thunder"
       version = "0.4.7"
     }
@@ -8,7 +8,7 @@ terraform {
   required_version = "~> 0.13"
 }
 
-resource "vthunder_service_group" "service-group" {
+resource "thunder_service_group" "service-group" {
   for_each = local.grouped
   name     = each.key
   protocol = var.slb_service_group_protocol

@@ -14,14 +14,16 @@ service {
 }
 
 driver "terraform" {
+  log = true
   required_providers {
-    vthunder = {
+    thunder = {
       source = "a10networks/thunder"
+      version = "0.4.7"
     }
   }
 }
 
-provider "vthunder" {
+provider "thunder" {
   address  = "54.166.184.68"
   username = "admin"
   password = "a10"
@@ -30,9 +32,9 @@ provider "vthunder" {
 task {
   name        = "demo-test"
   description = "automate services for website-x"
-  source      = "/Users/dcallao/Documents/workspace/repos/consul-nia/consul-nia-vthunder"
-  #version = "v0.1.0"
-  providers   = ["vthunder"]
+  source      = "terraform-thunder-consul-sync-nia"
+  #version    = "v0.1.0"
+  providers   = ["thunder"]
   services    = ["web","db"]
-  variable_files = "/Users/dcallao/Documents/workspace/repos/consul-nia/consul-nia-vthunder/example/terraform.tfvars"
+  variable_files = "terraform-thunder-consul-sync-nia/example/terraform.tfvars"
 }
