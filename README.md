@@ -1,4 +1,4 @@
-# A10 Networks Thunder ADC Service Group Module or Network Infrastructure Automation (NIA)
+# A10 Networks Thunder ADC Service Group Module for Network Infrastructure Automation (NIA)
 This Terraform module allows users to support **Dynamic L7 Load Balancing** by integrating [Consul](https://www.consul.io/) with A10 Networks [Thunder ADC](https://www.a10networks.com/products/thunder-adc/) to dynamically manage dynamic registration/de-registration of **Service Group** members based on services defined in the Consul catalog.  
 
 Using this Terraform module in conjunction with **consul-terraform-sync** enables teams to reduce manual ticketing processes and automate Day-2 operations related to application scale up/down in a way that is both declarative and repeatable across the organization and across multiple **ACOS** devices.
@@ -53,7 +53,7 @@ In order to use this module, you will need to install **consul-terraform-sync**,
 The users can subscribe to the services in the consul catalog and define the Terraform module which will be executed when there are any updates to the subscribed services using a **"task"**.
 
 **~> Note:** It is recommended to have the [consul-terraform-sync config guide](https://www.consul.io/docs/nia/installation/configuration) for reference.
-  
+
 1. Download the **consul-terraform-sync** on a node which is highly available (prefrably, a node running a consul client)
 2. Add **consul-terraform-sync** to the PATH on that node
 3. Check the installation
